@@ -9,10 +9,16 @@ class Idea(models.Model):
 
     title = models.CharField(max_length=125)
     description = models.TextField()
-    youtube_urk = models.URLField(null=True, blank=True)
+    youtube_url = models.URLField(null=True, blank=True)
     status = models.CharField(choices=Status.choices, default=Status.PENDING, max_length=45)
+
+    def __str__(self):
+        return self.title
 
 
 class Vote(models.Model):
     idea = models.ForeignKey(to=Idea, on_delete=models.CASCADE)
     reason = models.TextField()
+
+    def __str__(self):
+        return f"vote: {self.id}"
