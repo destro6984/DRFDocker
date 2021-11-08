@@ -5,8 +5,8 @@ from ideas.views import IdeaViewSet, VoteViewSet
 
 router = routers.DefaultRouter()
 
-router.register(f'ideas', IdeaViewSet)
-router.register(f'votes', VoteViewSet)
+router.register(r'ideas', IdeaViewSet)
+router.register(r'votes', VoteViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
